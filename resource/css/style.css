@@ -717,9 +717,10 @@ header .head__btn .sgn:hover {
 }
 #news__container .news__reserved {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   left: auto;
   color: #242424;
+  opacity: 0.7;
 }
 #news__container .news__reserved strong {
   color: #8E2424;
@@ -811,7 +812,7 @@ header .head__btn .sgn:hover {
     height: 220px;
   }
   #jobs__container {
-    padding: 0;
+    padding: 3% 0 0 0;
     gap: 2rem;
   }
   #jobs__container .jobs__content {
@@ -825,14 +826,14 @@ header .head__btn .sgn:hover {
     width: 100%;
   }
   #jobs__container .jobs__img {
-    width: 80%;
+    width: 70%;
   }
   #jobs__container .jobs__img img {
     width: 100%;
     height: auto;
   }
   #areas__container {
-    padding: 10% 0 0 0;
+    padding: 7% 0 0 0;
   }
   #areas__container .area__01 {
     display: flex;
@@ -878,7 +879,7 @@ header .head__btn .sgn:hover {
   }
   #comment__container {
     height: auto;
-    padding: 15% 0 0 0;
+    padding: 10% 0 0 0;
   }
   #comment__container .comment__box {
     width: 65%;
@@ -992,7 +993,7 @@ header .head__btn .sgn:hover {
     height: 220px;
   }
   #jobs__container {
-    padding: 0;
+    padding: 4% 0 0 0;
     gap: 2rem;
   }
   #jobs__container .jobs__content {
@@ -1006,14 +1007,14 @@ header .head__btn .sgn:hover {
     width: 100%;
   }
   #jobs__container .jobs__img {
-    width: 80%;
+    width: 70%;
   }
   #jobs__container .jobs__img img {
     width: 100%;
     height: auto;
   }
   #areas__container {
-    padding: 10% 0 0 0;
+    padding: 6% 0 0 0;
   }
   #areas__container .area__01 {
     display: flex;
@@ -1059,7 +1060,7 @@ header .head__btn .sgn:hover {
   }
   #comment__container {
     height: auto;
-    padding: 15% 0 0 0;
+    padding: 12% 0 0 0;
   }
   #comment__container .comment__box {
     width: 65%;
