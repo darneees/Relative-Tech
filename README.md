@@ -9,16 +9,19 @@
 - ``SASS``
 - ``JAVASCRIPT``
 
-## :paperclip: Image:
+## :paperclip: Font/Icones:
 
+https://fonts.google.com/specimen/Poppins#styles
 
+https://fonts.google.com/icons
 
-## :paperclip: Font:
+## :paperclip: Animações:
 
+https://animate.style/#documentation
 
 ## :desktop_computer: Deployed
 
-
+darneees.github.io/Relative-Tech/
 
 <p align="center">
   Challenge by <a href="https://7daysofcode.io/" target="_blank">Alura</a> | 7 DAYS OF CODE</a>.
