@@ -1,0 +1,2014 @@
+@import 'general';
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $color-primary;
+
+    #myBtn {
+        display: none;
+        background-color: $color-secundary;
+        color: $color-primary;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 4;
+        font-size: 1.2rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: $shadow;
+
+        &:hover {
+            background-color: $color-secundary;
+            transition: .3s ease-in-out;
+        }
+    }
+}
+
+header {
+    @include Align(row, center, center);
+    height: 10vh;
+    width: 100%;
+    background-color: $color-primary;
+    position: fixed;
+    z-index: 3;
+
+    animation: fadeInDown;
+    animation-duration: 1.5s;
+
+    nav {
+        @include Align(row, flex-start, center);
+        width: 70%;
+        height: 100%;
+        padding: 0 0 0 10%;
+        position: relative;
+
+        .head__logo {
+            @include Align(row, flex-start, center);
+            width: 30%;
+            gap: 0.1rem;
+
+            .icon {
+                font-size: 1.8rem;
+                color: $color-quaternary;
+                opacity: 0.6;
+            }
+
+            p {
+                color: $color-tertiary;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+        }
+
+        .head__menu {
+            @include Align(row, flex-start, center);
+            width: 70%;
+            gap: 1.8rem;
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                color: $color-secundary;
+
+                &:hover {
+                    color: $color-tertiary;
+                }
+            }
+        }
+
+        .drop__btn {
+            @include Align(row, center, center);
+            // display: none;
+            visibility: hidden;
+            position: absolute;
+            right: 0;
+            background-color: $color-quaternary;
+            color: $color-primary;
+            padding: .7rem;
+            border: none;
+            outline: none;
+            border-radius: .5rem;
+            cursor: pointer;
+            box-shadow: $shadow;
+
+            span {
+                font-size: 1.5rem;
+            }
+        }
+
+        .dropup__content {
+            display: none;
+            background-color: $color-primary;
+            position: absolute;
+            min-width: 200px;
+            bottom: -299px;
+            left: 1135px;
+            z-index: 3;
+            list-style: none;
+            border-radius: .5rem;
+            box-shadow: $color-quinary;
+            gap: .5rem;
+            text-align: start;
+
+            a {
+                width: 95%;
+                text-decoration: none;
+                color: $color-quaternary;
+                font-weight: 500;
+                font-size: 1rem;
+                padding: .8rem 1.5rem;
+                display: block;
+
+                &:hover {
+                    color: $color-secundary;
+                }
+            }
+
+            .dropup__login {
+                @include Align(column, center, center);
+                border-radius: .5rem;
+                gap: .1rem;
+                margin: 0 0 .3rem 0;
+                cursor: pointer;
+
+                .lg {
+                    background-color: transparent;
+                    width: 95%;
+                    padding: .8rem 1.5rem;
+                    font-size: 1rem;
+                    color: $color-quaternary;
+                    margin: 0 0 .3rem 0;
+                    border: 2px solid $color-quaternary;
+                    border-radius: .3rem;
+
+                    &:hover {
+                        background-color: $color-quaternary;
+                        color: $color-primary;
+                        transition: .3s ease-in-out;
+                    }
+                }
+
+                .sg {
+                    background-color: $color-quaternary;
+                    width: 95%;
+                    padding: .8rem 1.5rem;
+                    font-size: 1rem;
+                    color: $color-primary;
+                    border-radius: .3rem;
+
+                    &:hover {
+                        background-color: $color-secundary;
+                        transition: .3s ease-in-out;
+                    }
+                }
+            }
+
+            &.active {
+                display: block;
+            }
+        }
+
+    }
+
+    .head__btn {
+        @include Align(row, center, center);
+        width: 30%;
+        height: 100%;
+        gap: 1.5rem;
+
+        animation: fadeInDown;
+        animation-duration: 1.3s;
+
+        .lgn {
+            background: transparent;
+            text-decoration: none;
+            color: $color-secundary;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: .1rem;
+
+            &:hover {
+                color: $color-quaternary;
+            }
+        }
+
+        .sgn {
+            background: $color-quaternary;
+            padding: .7rem 1.3rem;
+            border-radius: .5rem;
+            text-decoration: none;
+            color: $color-primary;
+            font-weight: 400;
+            font-size: .8rem;
+            letter-spacing: .1rem;
+            box-shadow: $shadow;
+
+            &:hover {
+                background-color: $color-secundary;
+                transition: .3s ease-in-out;
+            }
+        }
+    }
+}
+
+#about__container {
+    @include Align(column, center, center);
+    @include size;
+    gap: 5rem;
+
+    .about__content {
+        @include Align(column, center, center);
+        width: 100%;
+        gap: 1rem;
+
+        animation: fadeInUp;
+        animation-duration: 3s;
+
+        span {
+            background-color: transparent;
+            color: $color-quaternary;
+            border: 1px solid $color-quaternary;
+            box-shadow: $shadow;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: .5rem 1rem;
+            border-radius: 2rem;
+            opacity: .7;
+        }
+
+        h2 {
+            color: $color-tertiary;
+            font-size: 3rem;
+        }
+
+        p {
+            color: $color-tertiary;
+            width: 50%;
+            font-size: 1rem;
+            opacity: .7;
+            text-align: center;
+        }
+    }
+
+    .about_numbers {
+        @include Align(row, center, center);
+        width: 100%;
+        gap: 2.5rem;
+
+        $width: 320px;
+        $height: 220px;
+
+        .num__item:nth-child(1) {
+            width: $width;
+            height: $height;
+            border-right: 1px solid $color-quaternary;
+            padding: 1.5rem;
+
+            h1 {
+                color: $color-quaternary;
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+            span {
+                color: $color-tertiary;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+            p {
+                color: $color-tertiary;
+                font-size: 1rem;
+                opacity: .6;
+                margin: .5rem 0 0 0;
+            }
+
+            animation: fadeInUp;
+            animation-duration: 3s;
+        }
+
+        .num__item:nth-child(2) {
+            border-right: 1px solid $color-quaternary;
+            width: $width;
+            height: $height;
+            padding: 1.5rem;
+
+            h1 {
+                color: $color-quaternary;
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+            span {
+                color: $color-tertiary;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+            p {
+                color: $color-tertiary;
+                font-size: 1rem;
+                opacity: .6;
+                margin: .5rem 0 0 0;
+            }
+
+            animation: fadeInUp;
+            animation-duration: 2.5s;
+        }
+
+        .num__item:nth-child(3) {
+            border-right: 1px solid $color-quaternary;
+            width: $width;
+            height: $height;
+            padding: 1.5rem;
+
+            h1 {
+                color: $color-quaternary;
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+            span {
+                color: $color-tertiary;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+            p {
+                color: $color-tertiary;
+                font-size: 1rem;
+                opacity: .6;
+                margin: .5rem 0 0 0;
+            }
+
+            animation: fadeInUp;
+            animation-duration: 2s;
+        }
+
+        .num__item:nth-child(4) {
+            width: $width;
+            height: $height;
+            padding: 1.5rem;
+
+            h1 {
+                color: $color-quaternary;
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+
+
+            span {
+                color: $color-tertiary;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+
+            p {
+                color: $color-tertiary;
+                font-size: 1rem;
+                opacity: .6;
+                margin: .5rem 0 0 0;
+            }
+
+            animation: fadeInUp;
+            animation-duration: 1.9s;
+        }
+    }
+}
+
+#jobs__container {
+    @include Align(column, center, center);
+    @include size;
+    position: relative;
+    overflow: hidden;
+    gap: 3rem;
+
+    .jobs__content {
+        @include Align(column, center, center);
+        gap: 1rem;
+        z-index: 2;
+
+        a {
+            @include Align(row, center, center);
+            background-color: transparent;
+            color: $color-quaternary;
+            padding: .5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: .9rem;
+            border: none;
+            outline: none;
+            text-decoration: none;
+            font-weight: 600;
+            gap: .5rem;
+            border: 1px solid $color-quaternary;
+            box-shadow: $shadow;
+
+            animation: pulse 1.5s infinite;
+
+            span {
+                opacity: .5;
+            }
+
+            &:hover {
+                background-color: $color-quaternary;
+                color: $color-primary;
+                transition: .3s ease-in-out;
+            }
+        }
+
+        h1 {
+            color: $color-tertiary;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: $color-tertiary;
+            font-size: 1rem;
+            opacity: .7;
+            text-align: center;
+        }
+    }
+
+    .jobs__img {
+        width: 1236px;
+        z-index: 2;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .jobs_circle {
+        position: absolute;
+        background-size: contain;
+        height: 100%;
+        opacity: .1;
+    }
+}
+
+#areas__container {
+    @include Align(column, center, center);
+    @include sizeTwo;
+    position: relative;
+    gap: 3rem;
+    padding: 5% 0 2% 0;
+
+    .area__01 {
+        @include Align(column, center, flex-start);
+        gap: 1.5rem;
+
+        h2 {
+            color: $color-tertiary;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        button {
+            @include Align(column, center, flex-start);
+            background-color: transparent;
+            box-shadow: $color-quinary;
+            padding: 1rem 2rem;
+            gap: 1.5rem;
+            border: none;
+            border-radius: 2rem;
+            position: relative;
+
+            span {
+                color: $color-quaternary;
+                font-weight: 500;
+                font-size: 1.1rem;
+            }
+
+            div {
+                @include Align(row, center, center);
+                gap: 1rem;
+
+                p {
+                    color: $color-tertiary;
+                    opacity: .6;
+                }
+            }
+
+            .icon {
+                @include Align(row, center, center);
+                background-color: $color-quaternary;
+                color: $color-primary;
+                position: absolute;
+                right: 0;
+                height: 100%;
+                width: 100px;
+                font-weight: 600;
+                font-size: 2rem;
+                border-radius: 0 2rem 2rem 0;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $color-secundary;
+                    transition: .3s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .area__02 {
+        @include Align(column, center, flex-start);
+        gap: 1.5rem;
+
+        h2 {
+            color: $color-tertiary;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        button {
+            @include Align(column, center, flex-start);
+            background-color: transparent;
+            box-shadow: $color-quinary;
+            padding: 1rem 2rem;
+            gap: 1.5rem;
+            border: none;
+            border-radius: 2rem;
+            position: relative;
+
+            span {
+                color: $color-quaternary;
+                font-weight: 500;
+                font-size: 1.1rem;
+            }
+
+            div {
+                @include Align(row, center, center);
+                gap: 1rem;
+
+                p {
+                    color: $color-tertiary;
+                    opacity: .6;
+                }
+            }
+
+            .icon {
+                @include Align(row, center, center);
+                background-color: $color-quaternary;
+                color: $color-primary;
+                position: absolute;
+                right: 0;
+                height: 100%;
+                width: 100px;
+                font-weight: 600;
+                font-size: 2rem;
+                border-radius: 0 2rem 2rem 0;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $color-secundary;
+                    transition: .3s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+#comment__container {
+    @include Align(column, center, center);
+    @include size;
+    position: relative;
+
+    .comment__box {
+        @include Align(column, center, center);
+        background-color: transparent;
+        box-shadow: $color-quinary;
+        width: 70%;
+        height: 400px;
+        padding: 0 4rem;
+        text-align: center;
+        border-radius: 2rem;
+        position: relative;
+
+        .comment__content {
+            @include Align(column, center, center);
+            gap: 1rem;
+            height: 60%;
+
+            span {
+                color: $color-quaternary;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            h2 {
+                color: $color-tertiary;
+                font-size: 2rem;
+                font-weight: 600;
+            }
+        }
+
+        .comment__avatar {
+            @include Align(column, center, center);
+            gap: .2rem;
+            height: 40%;
+
+            .name {
+                color: $color-tertiary;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .job {
+                color: $color-tertiary;
+                opacity: .6;
+                font-size: .8rem;
+                text-transform: uppercase;
+            }
+        }
+
+        .aspas {
+            background-color: $color-quaternary;
+            color: $color-primary;
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            padding: 1rem;
+            border-radius: 1rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $color-secundary;
+                transition: .3s ease-in-out;
+            }
+        }
+    }
+}
+
+#news__container {
+    @include Align(column, center, center);
+    @include size;
+    position: relative;
+
+    .news__box {
+        @include Align(column, center, center);
+        gap: 3rem;
+        text-align: center;
+
+        h1 {
+            color: $color-tertiary;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: $color-tertiary;
+            font-size: 1rem;
+            opacity: .7;
+            text-align: center;
+        }
+
+        .news__input {
+            @include Align(row, center, center);
+            gap: 1rem;
+
+            input[type="email"] {
+                background-color: transparent;
+                color: $color-quaternary;
+                border: none;
+                outline: none;
+                padding: 1.5rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 500;
+                width: 450px;
+                border-radius: 1rem;
+                box-shadow: $color-quinary;
+
+                &::placeholder {
+                    color: $color-quaternary;
+                    opacity: .5;
+                }
+            }
+
+            input[type="submit"] {
+                background-color: $color-quaternary;
+                color: $color-primary;
+                border: none;
+                outline: none;
+                padding: 1.5rem 1.5rem;
+                font-size: 1rem;
+                font-weight: 500;
+                width: 150px;
+                border-radius: 1rem;
+                box-shadow: $color-quinary;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $color-secundary;
+                    transition: .3s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .news__reserved {
+        position: absolute;
+        bottom: 30px;
+        left: auto;
+        color: $color-tertiary;
+
+        strong {
+            color: $color-quaternary;
+        }
+    }
+}
+
+// scroll style
+::-webkit-scrollbar {
+    background-color: $color-primary;
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $color-quaternary;
+    width: 10px;
+    height: auto;
+
+}
+
+// responsive style
+
+@media (min-width: 2000px) {
+    body {
+        #myBtn {
+            right: 30px;
+        }
+    }
+
+    header {
+        @include Align(row, flex-end, center);
+        width: 100%;
+
+        animation: fadeInDown;
+        animation-duration: 1.5s;
+
+
+        .head__btn {
+            display: flex;
+        }
+
+        nav {
+            width: 100%;
+
+            .head__menu {
+                display: flex;
+            }
+
+            .drop__btn {
+                display: none;
+                visibility: visible;
+                right: 50px;
+            }
+
+            .dropup__content {
+                display: none;
+                min-width: 200px;
+                bottom: -305px;
+                left: calc(100% - 250px);
+            }
+        }
+    }
+
+    #about__container {
+        gap: 5rem;
+
+        .about__content {
+            text-align: center;
+
+            span {
+                font-size: 1rem;
+                padding: 0.3rem .8rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+                padding: 0;
+            }
+
+            p {
+                width: 90%;
+            }
+        }
+
+        .about_numbers {
+            @include Align(row, center, center);
+            text-align: start;
+            gap: .5rem;
+
+            $width: 300px;
+            $height: 220px;
+
+            .num__item:nth-child(1) {
+                width: $width;
+                height: $height;
+            }
+
+            .num__item:nth-child(2) {
+                width: $width;
+                height: $height;
+            }
+
+            .num__item:nth-child(3) {
+                width: $width;
+                height: $height;
+            }
+
+            .num__item:nth-child(4) {
+                width: $width;
+                height: $height;
+            }
+        }
+    }
+
+    #jobs__container {
+        padding: 0;
+        gap: 2rem;
+
+        .jobs__content {
+            width: 90%;
+
+            h1 {
+                text-align: center;
+                font-size: 2.5rem;
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+
+        .jobs__img {
+            width: 80%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    }
+
+    #areas__container {
+        padding: 10% 0 0 0;
+
+        .area__01 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 65%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+
+        .area__02 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 65%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+    }
+
+    #comment__container {
+        height: auto;
+        padding: 15% 0 0 0;
+
+        .comment__box {
+            width: 65%;
+            height: 400px;
+            padding: 0 1rem;
+            gap: 3rem;
+
+            .comment__content {
+                width: 95%;
+                height: auto;
+
+                span {
+                    font-size: 1rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .comment__avatar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    #news__container {
+
+        .news__box {
+            width: 90%;
+
+            .news__input {
+                @include Align(row, center, center);
+                gap: 1rem;
+
+                input[type="email"] {
+                    width: 600px;
+                }
+
+                input[type="submit"] {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1999px) {
+    body {
+        #myBtn {
+            right: 30px;
+        }
+    }
+
+    header {
+        @include Align(row, flex-end, center);
+        width: 100%;
+
+        animation: fadeInDown;
+        animation-duration: 1.5s;
+
+
+        .head__btn {
+            display: flex;
+        }
+
+        nav {
+            width: 100%;
+
+            .head__menu {
+                display: flex;
+            }
+
+            .drop__btn {
+                display: none;
+                visibility: visible;
+                right: 50px;
+            }
+
+            .dropup__content {
+                display: none;
+                min-width: 200px;
+                bottom: -305px;
+                left: calc(100% - 250px);
+            }
+        }
+    }
+
+    #about__container {
+        gap: 5rem;
+
+        .about__content {
+            text-align: center;
+
+            span {
+                font-size: 1rem;
+                padding: 0.3rem .8rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+                padding: 0;
+            }
+
+            p {
+                width: 90%;
+            }
+        }
+
+        .about_numbers {
+            @include Align(row, center, center);
+            text-align: start;
+            gap: .5rem;
+
+            $width: 300px;
+            $height: 220px;
+
+            .num__item:nth-child(1) {
+                width: $width;
+                height: $height;
+            }
+
+            .num__item:nth-child(2) {
+                width: $width;
+                height: $height;
+            }
+
+            .num__item:nth-child(3) {
+                width: $width;
+                height: $height;
+            }
+
+            .num__item:nth-child(4) {
+                width: $width;
+                height: $height;
+            }
+        }
+    }
+
+    #jobs__container {
+        padding: 0;
+        gap: 2rem;
+
+        .jobs__content {
+            width: 90%;
+
+            h1 {
+                text-align: center;
+                font-size: 2.5rem;
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+
+        .jobs__img {
+            width: 80%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    }
+
+    #areas__container {
+        padding: 10% 0 0 0;
+
+        .area__01 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 65%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+
+        .area__02 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 65%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+    }
+
+    #comment__container {
+        height: auto;
+        padding: 15% 0 0 0;
+
+        .comment__box {
+            width: 65%;
+            height: 400px;
+            padding: 0 1rem;
+            gap: 3rem;
+
+            .comment__content {
+                width: 95%;
+                height: auto;
+
+                span {
+                    font-size: 1rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .comment__avatar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    #news__container {
+
+        .news__box {
+            width: 90%;
+
+            .news__input {
+                @include Align(row, center, center);
+                gap: 1rem;
+
+                input[type="email"] {
+                    width: 600px;
+                }
+
+                input[type="submit"] {
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+    body {
+        #myBtn {
+            right: 30px;
+        }
+    }
+
+    header {
+        @include Align(row-reverse, flex-end, center);
+        width: 100%;
+
+
+        .head__btn {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+
+            .head__menu {
+                display: none;
+            }
+
+            .drop__btn {
+                visibility: visible;
+                right: 50px;
+            }
+
+            .dropup__content {
+                min-width: 200px;
+                bottom: -305px;
+                left: calc(100% - 250px);
+            }
+        }
+    }
+
+    #about__container {
+        height: auto;
+        padding: 15% 0 0 0;
+        gap: 2rem;
+
+        .about__content {
+            text-align: center;
+
+            span {
+                font-size: 1rem;
+                padding: 0.3rem .8rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+                padding: 0;
+            }
+
+            p {
+                width: 90%;
+            }
+        }
+
+        .about_numbers {
+            @include Align(column, center, center);
+            text-align: center;
+
+            .num__item:nth-child(1) {
+                border: none;
+            }
+
+            .num__item:nth-child(2) {
+                border: none;
+            }
+
+            .num__item:nth-child(3) {
+                border: none;
+            }
+
+            .num__item:nth-child(4) {
+                border: none;
+            }
+        }
+    }
+
+    #jobs__container {
+        padding: 0;
+        gap: 2rem;
+
+        .jobs__content {
+            width: 90%;
+
+            h1 {
+                text-align: center;
+                font-size: 2.5rem;
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+
+        .jobs__img {
+            width: 90%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    }
+
+    #areas__container {
+        padding: 10% 0 0 0;
+
+        .area__01 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 100%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+
+        .area__02 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 100%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+    }
+
+    #comment__container {
+        height: auto;
+        padding: 20% 0 0 0;
+
+        .comment__box {
+            width: 90%;
+            height: 400px;
+            padding: 0 1rem;
+            gap: 3rem;
+
+            .comment__content {
+                width: 95%;
+                height: auto;
+
+                span {
+                    font-size: 1rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .comment__avatar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    #news__container {
+
+        .news__box {
+            width: 90%;
+
+            .news__input {
+                @include Align(column, center, center);
+                gap: 1rem;
+
+                input[type="email"] {
+                    width: 600px;
+                }
+
+                input[type="submit"] {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 999px) {
+    body {
+        #myBtn {
+            right: 30px;
+        }
+    }
+
+    header {
+        @include Align(row-reverse, flex-end, center);
+        width: 100%;
+
+
+        .head__btn {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+
+            .head__menu {
+                display: none;
+            }
+
+            .drop__btn {
+                visibility: visible;
+                right: 50px;
+            }
+
+            .dropup__content {
+                min-width: 200px;
+                bottom: -305px;
+                left: calc(100% - 250px);
+            }
+        }
+    }
+
+    #about__container {
+        height: auto;
+        padding: 20% 0 0 0;
+        gap: 2rem;
+
+        .about__content {
+            text-align: center;
+
+            span {
+                font-size: 1rem;
+                padding: 0.3rem .8rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+                padding: 0;
+            }
+
+            p {
+                width: 90%;
+            }
+        }
+
+        .about_numbers {
+            @include Align(column, center, center);
+            text-align: center;
+
+            .num__item:nth-child(1) {
+                border: none;
+            }
+
+            .num__item:nth-child(2) {
+                border: none;
+            }
+
+            .num__item:nth-child(3) {
+                border: none;
+            }
+
+            .num__item:nth-child(4) {
+                border: none;
+            }
+        }
+    }
+
+    #jobs__container {
+        padding: 10% 0 0 0;
+        gap: 2rem;
+
+        .jobs__content {
+            width: 90%;
+
+            h1 {
+                text-align: center;
+                font-size: 2.5rem;
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+
+        .jobs__img {
+            width: 90%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    }
+
+    #areas__container {
+        padding: 15% 0 0 0;
+
+        .area__01 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 100%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+
+        .area__02 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            button {
+                width: 100%;
+                height: 100px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.5rem;
+                    width: 70px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+    }
+
+    #comment__container {
+        height: auto;
+        padding: 30% 0 0 0;
+
+        .comment__box {
+            width: 85%;
+            height: 400px;
+            padding: 0 1rem;
+            gap: 3rem;
+
+            .comment__content {
+                width: 95%;
+                height: auto;
+
+                span {
+                    font-size: 1rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .comment__avatar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    #news__container {
+
+        .news__box {
+            width: 90%;
+
+            .news__input {
+                @include Align(column, center, center);
+                gap: 1rem;
+
+                input[type="email"] {
+                    width: 550px;
+                }
+
+                input[type="submit"] {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 430px) and (max-width: 767px) {
+    body {
+        #myBtn {
+            right: 30px;
+        }
+    }
+
+    header {
+        @include Align(row-reverse, flex-end, center);
+        width: 100%;
+
+
+        .head__btn {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+
+            .head__menu {
+                display: none;
+            }
+
+            .drop__btn {
+                visibility: visible;
+                right: 20px;
+            }
+
+            .dropup__content {
+                min-width: 200px;
+                bottom: -305px;
+                left: calc(100% - 220px);
+            }
+        }
+    }
+
+    #about__container {
+        height: auto;
+        padding: 20% 0 0 0;
+        gap: 2rem;
+
+        .about__content {
+            text-align: center;
+
+            span {
+                font-size: 1rem;
+                padding: 0.3rem .8rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+                padding: 0 .3rem;
+            }
+
+            p {
+                width: 90%;
+            }
+        }
+
+        .about_numbers {
+            @include Align(column, center, center);
+            text-align: center;
+
+            .num__item:nth-child(1) {
+                border: none;
+            }
+
+            .num__item:nth-child(2) {
+                border: none;
+            }
+
+            .num__item:nth-child(3) {
+                border: none;
+            }
+
+            .num__item:nth-child(4) {
+                border: none;
+            }
+        }
+    }
+
+    #jobs__container {
+        padding: 30% 0 0 0;
+        gap: 2rem;
+
+        .jobs__content {
+            width: 90%;
+
+            h1 {
+                text-align: center;
+                font-size: 2rem;
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+
+        .jobs__img {
+            width: 90%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    }
+
+    #areas__container {
+        padding: 20% 0 0 0;
+
+        .area__01 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            button {
+                width: 100%;
+                height: 90px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.3rem;
+                    width: 60px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+
+        .area__02 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            button {
+                width: 100%;
+                height: 90px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.3rem;
+                    width: 60px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+    }
+
+    #comment__container {
+        height: auto;
+        padding: 30% 0 0 0;
+
+        .comment__box {
+            width: 85%;
+            height: 500px;
+            padding: 0 1rem;
+            gap: 4rem;
+
+            .comment__content {
+                width: 95%;
+                height: auto;
+
+                span {
+                    font-size: 1rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .comment__avatar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    #news__container {
+
+        .news__box {
+            width: 90%;
+
+            .news__input {
+                @include Align(column, center, center);
+                gap: 1rem;
+
+                input[type="email"] {
+                    width: 3500px;
+                }
+
+                input[type="submit"] {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 429px) {
+
+    body {
+        #myBtn {
+            right: 30px;
+        }
+    }
+
+    header {
+        @include Align(row-reverse, flex-end, center);
+        width: 100%;
+
+
+        .head__btn {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+
+            .head__menu {
+                display: none;
+            }
+
+            .drop__btn {
+                visibility: visible;
+                right: 20px;
+            }
+
+            .dropup__content {
+                min-width: 200px;
+                bottom: -305px;
+                left: calc(100% - 220px);
+            }
+        }
+    }
+
+    #about__container {
+        height: auto;
+        padding: 30% 0 0 0;
+        gap: 2rem;
+
+        .about__content {
+            text-align: center;
+
+            span {
+                font-size: 1rem;
+                padding: 0.3rem .8rem;
+            }
+
+            h2 {
+                font-size: 3rem;
+            }
+
+            p {
+                width: 90%;
+            }
+        }
+
+        .about_numbers {
+            @include Align(column, center, center);
+
+            .num__item:nth-child(4) {
+                border-right: 1px solid $color-quaternary;
+            }
+        }
+    }
+
+    #jobs__container {
+        padding: 50% 0 0 0;
+        gap: 2rem;
+
+        .jobs__content {
+            width: 90%;
+
+            h1 {
+                text-align: center;
+                font-size: 2rem;
+            }
+
+            p {
+                width: 100%;
+            }
+        }
+
+        .jobs__img {
+            width: 90%;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    }
+
+    #areas__container {
+        padding: 20% 0 0 0;
+
+        .area__01 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            button {
+                width: 100%;
+                height: 90px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.3rem;
+                    width: 60px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+
+        .area__02 {
+            @include Align(column, center, center);
+            width: 90%;
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            button {
+                width: 100%;
+                height: 90px;
+                gap: .5rem;
+                border-radius: 1.3rem;
+
+                .icon {
+                    font-size: 1.3rem;
+                    width: 60px;
+                    border-radius: 0 1.3rem 1.3rem 0;
+                }
+            }
+        }
+    }
+
+    #comment__container {
+        height: auto;
+        padding: 30% 0 0 0;
+
+        .comment__box {
+            width: 85%;
+            height: 550px;
+            padding: 0 1rem;
+            gap: 2.5rem;
+
+            .comment__content {
+                width: 95%;
+                height: auto;
+
+                span {
+                    font-size: 1rem;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                }
+            }
+
+            .comment__avatar {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    #news__container {
+
+        .news__box {
+            width: 90%;
+
+            .news__input {
+                @include Align(column, center, center);
+                gap: 1rem;
+
+                input[type="email"] {
+                    width: 350px;
+                }
+
+                input[type="submit"] {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 390px) {
+    #jobs__container {
+        padding: 10% 0 0 0;
+    }
+}
