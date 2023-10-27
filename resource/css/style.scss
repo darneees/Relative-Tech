@@ -1,4 +1,4 @@
-@import 'general';
+@import 'general'; 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -725,9 +725,10 @@ header {
 
     .news__reserved {
         position: absolute;
-        bottom: 30px;
+        bottom: 50px;
         left: auto;
         color: $color-tertiary;
+        opacity: .7;
 
         strong {
             color: $color-quaternary;
@@ -843,7 +844,7 @@ header {
     }
 
     #jobs__container {
-        padding: 0;
+        padding: 3% 0 0 0;
         gap: 2rem;
 
         .jobs__content {
@@ -860,7 +861,7 @@ header {
         }
 
         .jobs__img {
-            width: 80%;
+            width: 70%;
 
             img {
                 width: 100%;
@@ -871,7 +872,7 @@ header {
     }
 
     #areas__container {
-        padding: 10% 0 0 0;
+        padding: 7% 0 0 0;
 
         .area__01 {
             @include Align(column, center, center);
@@ -920,7 +921,7 @@ header {
 
     #comment__container {
         height: auto;
-        padding: 15% 0 0 0;
+        padding: 10% 0 0 0;
 
         .comment__box {
             width: 65%;
@@ -1062,7 +1063,7 @@ header {
     }
 
     #jobs__container {
-        padding: 0;
+        padding: 4% 0 0 0;
         gap: 2rem;
 
         .jobs__content {
@@ -1079,7 +1080,7 @@ header {
         }
 
         .jobs__img {
-            width: 80%;
+            width: 70%;
 
             img {
                 width: 100%;
@@ -1090,7 +1091,7 @@ header {
     }
 
     #areas__container {
-        padding: 10% 0 0 0;
+        padding: 6% 0 0 0;
 
         .area__01 {
             @include Align(column, center, center);
@@ -1139,7 +1140,7 @@ header {
 
     #comment__container {
         height: auto;
-        padding: 15% 0 0 0;
+        padding: 12% 0 0 0;
 
         .comment__box {
             width: 65%;
