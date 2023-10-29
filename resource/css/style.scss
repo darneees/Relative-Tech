@@ -1,12 +1,12 @@
-@import 'general'; 
+@import 'general';
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@200;400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sora', sans-serif;
     user-select: none;
 }
 
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    background-color: $color-primary;
+    background-color: $background;
 
     #myBtn {
         display: none;
@@ -44,7 +44,7 @@ header {
     @include Align(row, center, center);
     height: 10vh;
     width: 100%;
-    background-color: $color-primary;
+    background-color: $background;
     position: fixed;
     z-index: 3;
 
@@ -483,7 +483,7 @@ header {
 
         button {
             @include Align(column, center, flex-start);
-            background-color: transparent;
+            background-color: $color-primary;
             box-shadow: $color-quinary;
             padding: 1rem 2rem;
             gap: 1.5rem;
@@ -540,7 +540,7 @@ header {
 
         button {
             @include Align(column, center, flex-start);
-            background-color: transparent;
+            background-color: $color-primary;
             box-shadow: $color-quinary;
             padding: 1rem 2rem;
             gap: 1.5rem;
@@ -591,70 +591,103 @@ header {
     @include size;
     position: relative;
 
-    .comment__box {
-        @include Align(column, center, center);
-        background-color: transparent;
-        box-shadow: $color-quinary;
-        width: 70%;
-        height: 400px;
-        padding: 0 4rem;
-        text-align: center;
-        border-radius: 2rem;
+    .swiper {
         position: relative;
+        border-radius: 1rem;
 
-        .comment__content {
-            @include Align(column, center, center);
-            gap: 1rem;
-            height: 60%;
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
 
-            span {
-                color: $color-quaternary;
-                font-weight: 500;
+            .swiper-slide {
+                background-color: $color-primary;
+                color: $color-tertiary;
+                position: relative;
+                text-align: center;
+                height: 100%;
                 font-size: 1rem;
-            }
+                border-radius: 2rem;
+                padding: 0 3rem 2rem 3rem;
+                cursor: pointer;
 
-            h2 {
-                color: $color-tertiary;
-                font-size: 2rem;
-                font-weight: 600;
-            }
-        }
+                .swipper-content {
+                    @include Align(column, center, center);
+                    width: 100%;
+                    height: 60%;
+                    gap: 1.5rem;
 
-        .comment__avatar {
-            @include Align(column, center, center);
-            gap: .2rem;
-            height: 40%;
+                    p {
+                        font-size: 1.2rem;
+                        color: $color-quaternary;
+                    }
 
-            .name {
-                color: $color-tertiary;
-                font-size: 1rem;
-                font-weight: 600;
-            }
+                    h2 {
+                        color: $color-tertiary;
+                        font-size: 1.5rem;
+                        font-weight: 800;
+                    }
+                }
 
-            .job {
-                color: $color-tertiary;
-                opacity: .6;
-                font-size: .8rem;
-                text-transform: uppercase;
-            }
-        }
+                .swipper-footer {
+                    @include Align(column, center, center);
+                    width: 100%;
+                    height: 40%;
+                    gap: .3rem;
 
-        .aspas {
-            background-color: $color-quaternary;
-            color: $color-primary;
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            padding: 1rem;
-            border-radius: 1rem;
-            cursor: pointer;
+                    img {
+                        height: 110px;
+                    }
 
-            &:hover {
-                background-color: $color-secundary;
-                transition: .3s ease-in-out;
+                    h3 {
+                        color: $color-tertiary;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    }
+
+                    span {
+                        color: $color-tertiary;
+                        font-size: 1rem;
+                        opacity: .7;
+                    }
+                }
             }
         }
     }
+
+    #next {
+        @include Align(column, center, center);
+        background-color: $color-quaternary;
+        color: $color-primary;
+        position: absolute;
+        top: auto;
+        right: 18.3%;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+
+    #prev {
+        @include Align(column, center, center);
+        background-color: $color-quaternary;
+        color: $color-primary;
+        position: absolute;
+        top: auto;
+        left: 18.3%;
+        width: 4rem;
+        height: 4rem;
+        font-size: .5rem;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-weight: 800;
+        font-size: 1rem !important;
+    }
+
 }
 
 #news__container {
@@ -680,12 +713,12 @@ header {
             text-align: center;
         }
 
-        .news__input {
+        .news__form {
             @include Align(row, center, center);
             gap: 1rem;
 
             input[type="email"] {
-                background-color: transparent;
+                background-color: $color-primary;
                 color: $color-quaternary;
                 border: none;
                 outline: none;
@@ -719,16 +752,19 @@ header {
                     background-color: $color-secundary;
                     transition: .3s ease-in-out;
                 }
+
+                &:focus {
+                    box-shadow: 0 0 0 3px $color-quinary;
+                }
             }
         }
     }
 
     .news__reserved {
         position: absolute;
-        bottom: 50px;
+        bottom: 30px;
         left: auto;
         color: $color-tertiary;
-        opacity: .7;
 
         strong {
             color: $color-quaternary;
@@ -844,7 +880,7 @@ header {
     }
 
     #jobs__container {
-        padding: 3% 0 0 0;
+        padding: 0;
         gap: 2rem;
 
         .jobs__content {
@@ -861,7 +897,7 @@ header {
         }
 
         .jobs__img {
-            width: 70%;
+            width: 80%;
 
             img {
                 width: 100%;
@@ -872,7 +908,7 @@ header {
     }
 
     #areas__container {
-        padding: 7% 0 0 0;
+        padding: 10% 0 0 0;
 
         .area__01 {
             @include Align(column, center, center);
@@ -921,31 +957,65 @@ header {
 
     #comment__container {
         height: auto;
-        padding: 10% 0 0 0;
+        padding: 15% 0 0 0;
 
-        .comment__box {
-            width: 65%;
-            height: 400px;
-            padding: 0 1rem;
-            gap: 3rem;
+        .swiper {
+            width: 75%;
+            height: 550px;
 
-            .comment__content {
-                width: 95%;
-                height: auto;
+            .swiper-wrapper {
 
-                span {
-                    font-size: 1rem;
-                }
+                .swiper-slide {
+                    padding: 0 2rem 1rem 2rem;
 
-                h2 {
-                    font-size: 1.5rem;
+                    .swipper-content {
+                        height: 65%;
+
+                        p {
+                            font-size: 1.2rem;
+                        }
+    
+                        h2 {
+                            font-size: 1.8rem;
+                        }
+                    }
+
+                    .swipper-footer {
+                        height: 35%;
+    
+                        img {
+                            height: 150px;
+                        }
+    
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+    
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
                 }
             }
+        }
 
-            .comment__avatar {
-                width: 100%;
-                height: auto;
-            }
+        #next {
+            width: 4rem;
+            height: 4rem;
+            top: 65%;
+            right: 120px;
+        }
+
+        #prev {
+            width: 4rem;
+            height: 4rem;
+            top:  65%;
+            left: 120px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 1.2rem !important;
         }
     }
 
@@ -954,7 +1024,7 @@ header {
         .news__box {
             width: 90%;
 
-            .news__input {
+            .news__form {
                 @include Align(row, center, center);
                 gap: 1rem;
 
@@ -1063,7 +1133,7 @@ header {
     }
 
     #jobs__container {
-        padding: 4% 0 0 0;
+        padding: 0;
         gap: 2rem;
 
         .jobs__content {
@@ -1080,7 +1150,7 @@ header {
         }
 
         .jobs__img {
-            width: 70%;
+            width: 80%;
 
             img {
                 width: 100%;
@@ -1091,7 +1161,7 @@ header {
     }
 
     #areas__container {
-        padding: 6% 0 0 0;
+        padding: 10% 0 0 0;
 
         .area__01 {
             @include Align(column, center, center);
@@ -1140,31 +1210,65 @@ header {
 
     #comment__container {
         height: auto;
-        padding: 12% 0 0 0;
+        padding: 13% 0 0 0;
 
-        .comment__box {
-            width: 65%;
-            height: 400px;
-            padding: 0 1rem;
-            gap: 3rem;
+        .swiper {
+            width: 75%;
+            height: 500px;
 
-            .comment__content {
-                width: 95%;
-                height: auto;
+            .swiper-wrapper {
 
-                span {
-                    font-size: 1rem;
-                }
+                .swiper-slide {
+                    padding: 0 2rem 1rem 2rem;
 
-                h2 {
-                    font-size: 1.5rem;
+                    .swipper-content {
+                        height: 65%;
+
+                        p {
+                            font-size: 1.2rem;
+                        }
+    
+                        h2 {
+                            font-size: 1.8rem;
+                        }
+                    }
+
+                    .swipper-footer {
+                        height: 35%;
+    
+                        img {
+                            height: 110px;
+                        }
+    
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+    
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
                 }
             }
+        }
 
-            .comment__avatar {
-                width: 100%;
-                height: auto;
-            }
+        #next {
+            width: 4rem;
+            height: 4rem;
+            top: 65%;
+            right: 120px;
+        }
+
+        #prev {
+            width: 4rem;
+            height: 4rem;
+            top:  65%;
+            left: 120px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 1.2rem !important;
         }
     }
 
@@ -1173,7 +1277,7 @@ header {
         .news__box {
             width: 90%;
 
-            .news__input {
+            .news__form {
                 @include Align(row, center, center);
                 gap: 1rem;
 
@@ -1348,31 +1452,65 @@ header {
 
     #comment__container {
         height: auto;
-        padding: 20% 0 0 0;
+        padding: 17% 0 0 0;
 
-        .comment__box {
-            width: 90%;
-            height: 400px;
-            padding: 0 1rem;
-            gap: 3rem;
+        .swiper {
+            width: 85%;
+            height: 550px;
 
-            .comment__content {
-                width: 95%;
-                height: auto;
+            .swiper-wrapper {
 
-                span {
-                    font-size: 1rem;
-                }
+                .swiper-slide {
+                    padding: 0 2rem 1rem 2rem;
 
-                h2 {
-                    font-size: 1.5rem;
+                    .swipper-content {
+                        height: 65%;
+
+                        p {
+                            font-size: 1.2rem;
+                        }
+    
+                        h2 {
+                            font-size: 1.8rem;
+                        }
+                    }
+
+                    .swipper-footer {
+                        height: 35%;
+    
+                        img {
+                            height: 110px;
+                        }
+    
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+    
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
                 }
             }
+        }
 
-            .comment__avatar {
-                width: 100%;
-                height: auto;
-            }
+        #next {
+            width: 4rem;
+            height: 4rem;
+            top: 65%;
+            right: 30px;
+        }
+
+        #prev {
+            width: 4rem;
+            height: 4rem;
+            top:  65%;
+            left: 30px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 1rem !important;
         }
     }
 
@@ -1381,7 +1519,7 @@ header {
         .news__box {
             width: 90%;
 
-            .news__input {
+            .news__form {
                 @include Align(column, center, center);
                 gap: 1rem;
 
@@ -1427,7 +1565,7 @@ header {
 
             .dropup__content {
                 min-width: 200px;
-                bottom: -305px;
+                bottom: -300px;
                 left: calc(100% - 250px);
             }
         }
@@ -1556,31 +1694,65 @@ header {
 
     #comment__container {
         height: auto;
-        padding: 30% 0 0 0;
+        padding: 20% 0 0 0;
 
-        .comment__box {
+        .swiper {
             width: 85%;
-            height: 400px;
-            padding: 0 1rem;
-            gap: 3rem;
+            height: 550px;
 
-            .comment__content {
-                width: 95%;
-                height: auto;
+            .swiper-wrapper {
 
-                span {
-                    font-size: 1rem;
-                }
+                .swiper-slide {
+                    padding: 0 2rem 1rem 2rem;
 
-                h2 {
-                    font-size: 1.5rem;
+                    .swipper-content {
+                        height: 65%;
+
+                        p {
+                            font-size: 1.2rem;
+                        }
+    
+                        h2 {
+                            font-size: 1.5rem;
+                        }
+                    }
+
+                    .swipper-footer {
+                        height: 35%;
+    
+                        img {
+                            height: 110px;
+                        }
+    
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+    
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
                 }
             }
+        }
 
-            .comment__avatar {
-                width: 100%;
-                height: auto;
-            }
+        #next {
+            width: 3.5rem;
+            height: 3.5rem;
+            top: 65%;
+            right: 20px;
+        }
+
+        #prev {
+            width: 3.5rem;
+            height: 3.5rem;
+            top:  65%;
+            left: 20px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: .8rem !important;
         }
     }
 
@@ -1589,7 +1761,7 @@ header {
         .news__box {
             width: 90%;
 
-            .news__input {
+            .news__form {
                 @include Align(column, center, center);
                 gap: 1rem;
 
@@ -1766,29 +1938,63 @@ header {
         height: auto;
         padding: 30% 0 0 0;
 
-        .comment__box {
+        .swiper {
             width: 85%;
-            height: 500px;
-            padding: 0 1rem;
-            gap: 4rem;
+            height: 550px;
 
-            .comment__content {
-                width: 95%;
-                height: auto;
+            .swiper-wrapper {
 
-                span {
-                    font-size: 1rem;
-                }
+                .swiper-slide {
+                    padding: 0 2rem 1rem 2rem;
 
-                h2 {
-                    font-size: 1.5rem;
+                    .swipper-content {
+                        height: 70%;
+
+                        p {
+                            font-size: 1rem;
+                        }
+    
+                        h2 {
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    .swipper-footer {
+                        height: 30%;
+    
+                        img {
+                            height: 100px;
+                        }
+    
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+    
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
                 }
             }
+        }
 
-            .comment__avatar {
-                width: 100%;
-                height: auto;
-            }
+        #next {
+            width: 3rem;
+            height: 3rem;
+            top: 65%;
+            right: 10px;
+        }
+
+        #prev {
+            width: 3rem;
+            height: 3rem;
+            top:  65%;
+            left: 10px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: .7rem !important;
         }
     }
 
@@ -1797,12 +2003,12 @@ header {
         .news__box {
             width: 90%;
 
-            .news__input {
+            .news__form {
                 @include Align(column, center, center);
                 gap: 1rem;
 
                 input[type="email"] {
-                    width: 3500px;
+                    width: 350px;
                 }
 
                 input[type="submit"] {
@@ -1959,31 +2165,65 @@ header {
 
     #comment__container {
         height: auto;
-        padding: 30% 0 0 0;
+        padding: 35% 0 0 0;
 
-        .comment__box {
-            width: 85%;
+        .swiper {
+            width: 90%;
             height: 550px;
-            padding: 0 1rem;
-            gap: 2.5rem;
 
-            .comment__content {
-                width: 95%;
-                height: auto;
+            .swiper-wrapper {
 
-                span {
-                    font-size: 1rem;
-                }
+                .swiper-slide {
+                    padding: 0 2rem 1rem 2rem;
 
-                h2 {
-                    font-size: 1.5rem;
+                    .swipper-content {
+                        height: 70%;
+
+                        p {
+                            font-size: 1rem;
+                        }
+    
+                        h2 {
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    .swipper-footer {
+                        height: 30%;
+    
+                        img {
+                            height: 90px;
+                        }
+    
+                        h3 {
+                            font-size: 1.2rem;
+                        }
+    
+                        span {
+                            font-size: 1rem;
+                        }
+                    }
                 }
             }
+        }
 
-            .comment__avatar {
-                width: 100%;
-                height: auto;
-            }
+        #next {
+            width: 3rem;
+            height: 3rem;
+            top: 70%;
+            right: 10px;
+        }
+
+        #prev {
+            width: 3rem;
+            height: 3rem;
+            top:  70%;
+            left: 10px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: .7rem !important;
         }
     }
 
@@ -1992,7 +2232,7 @@ header {
         .news__box {
             width: 90%;
 
-            .news__input {
+            .news__form {
                 @include Align(column, center, center);
                 gap: 1rem;
 
