@@ -25,3 +25,48 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+// swipper carousel
+
+const swiper = new Swiper('.swiper', {
+
+  direction: 'horizontal',
+  loop: true,
+  speed: 800,
+  effect: 'fade',
+  fadeEffect: {
+      crossFade: true
+  },
+  autoplay: {
+      delay: 5000,
+  },
+
+
+  breakpoints: {
+      320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+      },
+      // when window width is >= 480px
+      480: {
+          slidesPerView: 1,
+          spaceBetween: 10
+      },
+      // when window width is >= 640px
+      640: {
+          slidesPerView: 1,
+          spaceBetween: 10
+      },
+      // when window width is >= 1024px
+      1024: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+      },
+  },
+
+  navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+  },
+
+});
