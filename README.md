@@ -22,7 +22,9 @@ https://animate.style/#documentation
 
 ## :desktop_computer: Deployed
 
-darneees.github.io/Relative-Tech/
+https://darneees.github.io/Relative-Tech/
+
+https://relative-tech.vercel.app/
 
 <p align="center">
   Challenge by <a href="https://7daysofcode.io/" target="_blank">Alura</a> | 7 DAYS OF CODE</a>.
